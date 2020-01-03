@@ -1,17 +1,17 @@
 # Project: DNA-Sequence-Assembly
 
-An interesting project in which data structures as well as a De bruijn Graph are used to create and assemble DNA sequences from large files efficiently.
-
-## Getting Started
-
-Some knowledge about the De Bruijn Graph and DNA sequencing is required.
+An interesting project in which data structures as well as a De bruijn Graph are used to create and assemble DNA 
+sequences from large files efficiently.
 
 ## Overview
 
-A hash map is used to store the k-mers (sequences of k DNA strands), using a hashing function specific to this use case.
-By combining common sequences, it becomes more efficient to conduct operations on the data contained in large file, as with the depth first search.
+A De Bruijn Graph stored inside a hash map is used to contain the given k-mers (sequences of k DNA strands), indexed 
+by a hashing function specific to this use case.
+
+Includes a Depth-First search method that generates contigs.
+For longer contigs, it's recommended to choose a smaller k-mer size .
 
 ## Future Objectives
 
-- Refactor and add the existing Unit Tests to GitHub.
-- Test different hashing functions. 
+- Refactor and add Unit Tests.
+- Test different hashing functions for further performance gains.

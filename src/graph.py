@@ -59,7 +59,7 @@ class DeBruijnGraph:
         for i in graph_nodes:
             self.add(i)
 
-    def index(self, node):
+    def index(self, node: str):
         """Returns the index for a node"""
         index = self._get_new_index(node)
         value = self[index]
@@ -67,8 +67,8 @@ class DeBruijnGraph:
             return -1
         return index
 
-    def _get_new_index(self, node):
-        """Returns the index for a new node or the current index if the node exists."""
+    def _get_new_index(self, node: str):
+        """Returns the index for a new node or the current index if the graph already contains the node."""
         current_index = self._hash_func(node)
         current_node = self[current_index]
 
@@ -131,25 +131,24 @@ class DeBruijnGraph:
 
     def predecessors(self, node: str):
         """Returns the predecessors of the given node."""
-        previous = []
+        predecessors = []
         for symbol in ['A', 'T', 'C', 'G']:
             candidate = symbol + node[:self.k - 1]
-
             if candidate in self:
-                previous.append(candidate)
-        return previous
+                predecessors.append(candidate)
+        return predecessors
 
     def successors(self, node: str):
         """Returns the successors of the given node."""
-        previous = []
+        successors = []
         for symbol in ['A', 'T', 'C', 'G']:
             candidate = node[1:] + symbol
             if candidate in self:
-                previous.append(candidate)
-        return previous
+                successors.append(candidate)
+        return successors
 
-    def depth_first_search_common_contigs(self, start):
-        """Depth first search of the graph for matching common contigs."""
+    def contigs_depth_first_search(self, start):
+        """Depth first search of the hash map, returns an array of contigs."""
         contigs = []
         stepped_nodes = set()
         current_node = start

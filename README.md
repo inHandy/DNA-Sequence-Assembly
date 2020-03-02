@@ -10,8 +10,3 @@ by a hashing function specific to this use case.
 
 Includes a Depth-First search method that generates contigs.
 For longer contigs, it's recommended to choose a smaller k-mer size .
-
-## Future Objectives
-
-- Refactor and add Unit Tests.
-- Test different hashing functions for further performance gains.
